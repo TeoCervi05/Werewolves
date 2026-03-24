@@ -6,10 +6,14 @@ import os
 def shell_width():
     try:
         return os.get_terminal_size().columns
+    
     except OSError:
         return 80
 
-def printer(rows, spaces = 0):
+def printer(rows, spaces = 0, newline = False):
+    if newline:
+        print("")
+
     for r in rows:
         print(f" " * spaces + r)
 
@@ -17,10 +21,16 @@ def printer(rows, spaces = 0):
 
 def printf(text, style = ""):
     width = shell_width()
+
+    """
+    LEGEND:
+    title - title;
+    body - (leave empty).
+    """
     
     #titles
     if style == "title":
-        printer(textwrap.wrap(f"\n=== {text.upper()} ===", width), 1)
+        printer(textwrap.wrap(f"=== {text.upper()} ===", width), 1, True)
         return
 
     #standard

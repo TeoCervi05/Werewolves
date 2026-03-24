@@ -1,3 +1,5 @@
+from data.db import setup_database
+from utils.log import log_this
 from utils.format import printf
 
 """
@@ -9,9 +11,14 @@ from utils.format import printf
 """
 
 def main():
-    printf("Hello World!", "title")
-    printf("frase lunghissima che serve per vedere se il titolo si adatta bene all lunghezza del terminale senza possibilmente esplodere perché non posso continuare sempre a correggere queste cagate.", "title")
-    printf("frase lunghissima che serve per vedere se il titolo si adatta bene all lunghezza del terminale senza possibilmente esplodere perché non posso continuare sempre a correggere queste cagate.")
+    #title
+    printf("werewolves - game master tool", "title")
+    
+    #initializing objects
+    setup_database()
+
+    log_this("system", "Game started succesfully")
+
 
 if __name__ == "__main__":
     main()
