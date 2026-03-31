@@ -1,3 +1,4 @@
+from core.context import GameContext
 from data.db import setup_database
 from utils.log import log_this
 from utils.format import printf
@@ -16,6 +17,9 @@ def main():
     
     #initializing objects
     setup_database()
+    game = GameContext()
+
+    print(game.status.day)
 
     log_this("system", "Game started succesfully")
 
