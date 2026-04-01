@@ -30,8 +30,15 @@ def printf(text, style = ""):
     
     #titles
     if style == "title":
-        printer(textwrap.wrap(f"=== {text.upper()} ===", width), 1, True)
+        print(textwrap.wrap(f"=== {text.upper()} ===", width)[0])
         return
 
     #standard
     printer(textwrap.wrap(text, width - 3), 3)
+
+def printq(text):
+    # no check
+    if text == "":
+        return input(f"\n > ").strip()
+
+    return input(f"\n {text} > ").strip()

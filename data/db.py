@@ -16,12 +16,13 @@ def setup_database():
 
     cur.executescript("""
         CREATE TABLE IF NOT EXISTS status (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
             day INTEGER DEFAULT 0,
             phase TEXT DEFAULT 'setup',
             turn TEXT DEFAULT 'master'
         );
     """)
-    log_this("system", "backup database created")
+    log_this("system", "backup database loaded")
 
 # -- SEEK AND EXECUTE UTILITIES
 

@@ -1,4 +1,5 @@
-from core.context import GameContext
+from core.cmd import Command
+from core.ctx import Context
 from data.db import setup_database
 from utils.log import log_this
 from utils.format import printf
@@ -17,11 +18,10 @@ def main():
     
     #initializing objects
     setup_database()
-    game = GameContext()
+    ctx = Context()
+    cmd = Command()
 
-    print(game.status.day)
-
-    log_this("system", "Game started succesfully")
+    log_this("system", "game started succesfully")
 
 
 if __name__ == "__main__":

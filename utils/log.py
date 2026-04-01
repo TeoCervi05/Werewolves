@@ -5,7 +5,7 @@ LOG_NAME = "log/log.txt"
 
 def log_this(title, desc):
     timestamp = datetime.now().isoformat(timespec = "seconds")
-    line = f"{title.upper()}: {desc} ({timestamp})"
+    line = f"{title.upper()}: {desc} ({timestamp})\n"
 
     try:
         with open(LOG_NAME, "x", encoding = "utf-8") as conn:

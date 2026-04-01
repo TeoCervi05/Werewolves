@@ -10,7 +10,6 @@ def pull():
 
 class Status:
     def __init__(self):
-        print("Status check")
         data = pull()
         self.day = data[0]
         self.phase = data[1]
