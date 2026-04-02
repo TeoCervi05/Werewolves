@@ -15,6 +15,7 @@ from utils.format import printf
 def main():
     #title
     printf("werewolves - game master tool", "title")
+    printf("Welcome: for a list of commands and applications, type \"help\" in the command line. Have a nice game!")
     
     #initializing objects
     setup_database()
@@ -22,6 +23,13 @@ def main():
     cmd = Command()
 
     log_this("system", "game started succesfully")
+
+    q = 0
+
+    while 1 > 0:
+        q = cmd.line()
+        if q:
+            break
 
 
 if __name__ == "__main__":

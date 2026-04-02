@@ -25,18 +25,35 @@ def printf(text, style = ""):
     """
     LEGEND:
     title - title;
-    body - (leave empty).
+    subtitle - stitle;
+    heading - head;
+    basic text - (leave empty, or type anything but the aboves).
     """
     
     #titles
     if style == "title":
-        print(textwrap.wrap(f"=== {text.upper()} ===", width)[0])
+        printer(textwrap.wrap(f"=== {text.upper()} ===", width - 1), 1)
+        return
+
+    #subtitles
+    if style == "stitle":
+        printer(textwrap.wrap(f"-- {text.upper()} --", width - 1), 1)
+        return
+
+    #heading
+    if style == "head":
+        printer(textwrap.wrap(f"{text.upper()}", width - 1), 1)
+        return
+
+    #body
+    if style == "body":
+        printer(textwrap.wrap(text, width - 2), 2)
         return
 
     #standard
     printer(textwrap.wrap(text, width - 3), 3)
 
-def printq(text):
+def printq(text = ""):
     # no check
     if text == "":
         return input(f"\n > ").strip()
