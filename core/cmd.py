@@ -10,7 +10,7 @@ class Command:
         self.query = parts[0]
         self.params = parts[1:]
 
-        if self.query == "exit":
+        if self.query == "quit":
             return 1
 
         if self.query == "help":

@@ -27,6 +27,7 @@ def printf(text, style = ""):
     title - title;
     subtitle - stitle;
     heading - head;
+    body - body;
     basic text - (leave empty, or type anything but the aboves).
     """
     
