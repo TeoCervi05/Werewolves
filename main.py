@@ -27,7 +27,7 @@ def main():
     q = 0
 
     while 1 > 0:
-        q = cmd.line()
+        q = cmd.line(ctx)
         if q:
             break
 

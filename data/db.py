@@ -21,6 +21,17 @@ def setup_database():
             phase TEXT DEFAULT 'setup',
             turn TEXT DEFAULT 'master'
         );
+
+        CREATE TABLE IF NOT EXISTS players (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            name TEXT UNIQUE,
+            role TEXT,
+            soul TEXT,
+            faction TEXT,
+            active INTEGER,
+            romeo INTEGER DEFAULT 0,
+            alive INTEGER DEFAULT 1
+        );
     """)
     log_this("system", "backup database loaded")
 

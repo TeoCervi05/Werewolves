@@ -46,9 +46,21 @@ def printf(text, style = ""):
         printer(textwrap.wrap(f"{text.upper()}", width - 1), 1)
         return
 
+    #bullet
+    if style == "bull":
+        text_list = text.split("_")
+        for t in text_list:
+            printer(textwrap.wrap(f"- {t}", width - 2), 2)
+        return
+
     #body
     if style == "body":
         printer(textwrap.wrap(text, width - 2), 2)
+        return
+
+    #error
+    if style == "err":
+        printer(textwrap.wrap(f"ERROR: {text}", width), 0)
         return
 
     #standard

@@ -1,4 +1,5 @@
 from data.db import fetch_one, execute_commit
+from utils.format import printf
 
 def pull():
     # Ensure a status row exists and return (day, phase, turn).
@@ -14,3 +15,7 @@ class Status:
         self.day = data[0]
         self.phase = data[1]
         self.turn = data[2]
+
+    def show(self):
+        printf("current status:", "head")
+        printf(f"Day = {self.day};_Phase = {self.phase};_Turn = {self.turn}.", "bull")
