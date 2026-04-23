@@ -1,5 +1,6 @@
 from core.cmd import Command
 from core.ctx import Context
+from core.phase_manager import PhaseManager
 from data.db import setup_database
 from utils.log import log_this
 from utils.format import printf
@@ -15,20 +16,27 @@ from utils.format import printf
 def main():
     #title
     printf("werewolves - game master tool", "title")
-    printf("Welcome: for a list of commands and applications, type \"help\" in the command line. Have a nice game!")
+    printf("Welcome:", "body")
+    printf("for a list of commands and applications, type \"help\" in the command line;_to have information about a specific command, type \"help {query}\".", "bull")
+    printf("Have a nice game!", "body")
     
     #initializing objects
     setup_database()
     ctx = Context()
+    pmanager = PhaseManager(ctx)
     cmd = Command()
+
+    pmanager.start(ctx.status.phase)
 
     log_this("system", "game started succesfully")
 
     q = 0
 
     while 1 > 0:
-        q = cmd.line(ctx)
+        q = cmd.line(ctx, pmanager)
         if q:
+            #GTFO protocol
+            printf("Goodbye!")
             break
 
 

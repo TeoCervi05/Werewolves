@@ -1,8 +1,6 @@
 import textwrap
 import os
 
-# TO DO: in printer, add an option to simulate /n
-
 def shell_width():
     try:
         return os.get_terminal_size().columns
@@ -33,17 +31,17 @@ def printf(text, style = ""):
     
     #titles
     if style == "title":
-        printer(textwrap.wrap(f"=== {text.upper()} ===", width - 1), 1)
+        printer(textwrap.wrap(f"=== {text.upper()} ===", width - 1), 1, True)
         return
 
     #subtitles
     if style == "stitle":
-        printer(textwrap.wrap(f"-- {text.upper()} --", width - 1), 1)
+        printer(textwrap.wrap(f"-- {text.upper()} --", width - 1), 1, True)
         return
 
     #heading
     if style == "head":
-        printer(textwrap.wrap(f"{text.upper()}", width - 1), 1)
+        printer(textwrap.wrap(f"{text.upper()}", width - 1), 1, True)
         return
 
     #bullet
