@@ -1,3 +1,4 @@
+from data.db import delete_db
 from utils.format import *
 from utils.help import system_help
 
@@ -29,6 +30,10 @@ class Command:
             return 0
 
         if self.query == "quit":
+            if len(self.params) == 1:
+                if self.params[0] == "-d" or self.params[0] == "-delete":
+                    delete_db()
+            
             return 1
 
         if self.query == "status":

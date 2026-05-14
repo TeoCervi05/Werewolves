@@ -35,6 +35,22 @@ def setup_database():
     """)
     log_this("system", "backup database loaded")
 
+#database purging (when asked)
+
+def delete_db():
+    #ADD LOGGING
+    if os.path.exists(DB_NAME):
+        try:
+            os.remove(DB_NAME)
+            printf(f"\"{DB_NAME}\" deleted succesfully!", "body")
+        except PermissionError:
+            printf(f"\"{DB_NAME}\" impossible to delete: it's being used in another process", "err")
+        except Exception as e:
+            printf(e, "err")
+    
+    else:
+        printf(f"Database '{DB_NAME}' not found.", "err")
+
 # -- SEEK AND EXECUTE UTILITIES
 
 def fetch_one(query, params = ()):

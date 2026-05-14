@@ -42,7 +42,7 @@ def system_help(query):
             "quit",
             "This is the most important query of all: it is always the first to be impemented in every program even when written by beginners. Whitout this query, the program would go into an infinite loop that nothing but some brutal methods like \"forced shutdown\" or \"reboot\" would be able to stop. Luckly, I thinked of a way to easily close the program, how smart am I? ;-)",
             "quit_quit {param}",
-            "-d or -delete: use it only if you are not accessing this session anymore: this will purge the game database. NOT IMPLEMENTED YET"
+            "-d or -delete: use it only if you are not accessing this session anymore: this will purge the game database."
         )
         return
 
